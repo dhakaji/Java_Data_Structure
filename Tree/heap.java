@@ -49,6 +49,14 @@ class Heap{
              p=(i-1)/2;
          }
      }
+      public void deletekey(int i){
+         increaseKey(i,Integer.MAXVALUE);
+         extractMax();
+     }
+      public int getMax(){
+         return arr[0];
+         
+     }
      private void swap(int i,int j){
          int temp=arr[i];
          arr[i]=arr[j];
