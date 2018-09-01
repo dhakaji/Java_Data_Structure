@@ -1,4 +1,4 @@
-class Heap{
+class MaxHeap{
      int heapsize,arrsize;
      int arr[];
      public void buildMaxHeap(){
