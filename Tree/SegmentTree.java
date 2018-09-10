@@ -17,12 +17,10 @@ public class SegmentTree{
     tree[index] =buildSegment(arr,first,mid,index*2+1)+buildSegment(arr,mid+1,last,index*2+2);
     return tree[index];
   }
-  public int query(int first,int last,int l,int r,int index){
-    // if(l<first || r>last  || first>last)
-    // {
-    //   System.out.println("Invalid Input");
-    //   return -1;
-    // }
+  public int query(int n,int l,int r){
+   return query(0,n-1,l,r,0); 
+  }
+  private int query(int first,int last,int l,int r,int index){
     if(l<=first && r>=last)
       return tree[index];
     if(r<first || l>last)
