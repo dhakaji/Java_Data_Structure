@@ -23,7 +23,7 @@ public class SegmentTree{
     //   System.out.println("Invalid Input");
     //   return -1;
     // }
-    if(first<=l && last>=r)
+    if(l<=first && r>=last)
       return tree[index];
     if(r<first || l>last)
     return 0;
