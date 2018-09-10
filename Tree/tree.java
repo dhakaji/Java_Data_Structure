@@ -22,9 +22,6 @@ class tree{
   static void inOrder(){
     inOrderRec(root);
     System.out.println();
-    System.out.println();
-    System.out.println();
-    System.out.println();
   }
   static void inOrderRec(Node node){
     if(node!=null){
@@ -76,17 +73,6 @@ class tree{
     }
     return null;
   }
-  // static void deleteBst(data){
-  //   Node target=search(root,data);
-  //   target=deleteBstRec(root,data);
-  // }
-  // static Node deleteBstRec(Node node,int data)
-  // {
-  //   //Node temp=findInorderSuccessor(temp.right);
-  //   if(node.right==null)
-  //   node=node.left;
-  // }
-
   static Node deleteBst(Node node,int data){
     if(node!=null){
       if(data<node.data)
@@ -110,17 +96,17 @@ class tree{
   static void preOrder(){
     preOrderRec(root);
   }
-  static void preOrderRec(Node node){
+  private static void preOrderRec(Node node){
     if(node!=null){
       System.out.print(node.data+"("+node.height+","+node.bf+")"+"  ");
       preOrderRec(node.left);
       preOrderRec(node.right);
     }
   }
-  static void printHeights(){
+  public static void printHeights(){
     printhe(root);
   }
-  static void printhe(Node node){
+  private static void printhe(Node node){
     if(node!=null){
         printhe(node.left);
         System.out.println(node.data + "   " + node.height);
@@ -216,72 +202,5 @@ class tree{
         return node;
       }
       return null;
-      //if(bf>1 && )
-      // if(bf<-1 && data<node.right.data){
-      //   node.right=rightRotate(node.right);
-      //   node=leftRotate(node);
-      // }
-      // else if(bf<-1 && data > node.right.data ){
-      //   node=leftRotate(node);
-      // }
-      // else if(bf >1 && data < node.left.data){
-      //   node=rightRotate(node);
-      // }
-      // else if(bf >1 && data>node.left.data){
-      //   node.left=leftRotate(node.left);
-      //   node=rightRotate(node);
-      // }
     }
-  public static void main(String[] args) {
-      //tree tree=new tree();
-      tree.insertBst(14);
-      //tree.inOrder();
-      tree.insertBst(59);
-      //tree.inOrder();
-      tree.insertBst(13);
-      //tree.inOrder();
-      tree.insertBst(23);
-      //tree.inOrder();
-      tree.insertBst(70);
-      //tree.inOrder();
-      tree.insertBst(62);
-      //System.out.println("inOrder : ");
-      //tree.inOrder();
-      // System.out.println("preOrder : ");
-      // tree.preOrder();
-      tree.insertBst(26);
-      // tree.inOrder();
-      // tree.insertBst(13);
-      // tree.inOrder();
-      tree.insertBst(35);
-      tree.inOrder();
-      tree.deleteBst(root,35);
-      tree.inOrder();
-      tree.deleteBst(root,59);
-      tree.inOrder();
-      tree.insertBst(59);
-      tree.inOrder();
-      tree.insertBst(35);
-      tree.inOrder();
-      tree.deleteBst(root,14);
-      tree.inOrder();
-      tree.deleteBst(root,70);
-      tree.inOrder();
-      tree.insertBst(70);
-      tree.inOrder();
-      tree.insertBst(14);
-      tree.inOrder();
-      // tree.insertBst(25);
-      // //System.out.println("inOrder : ");
-      // tree.inOrder();
-      // //System.out.println("preOrder : ");
-      // //tree.preOrder();
-      // tree.insertBst(64);
-      // //System.out.println("inOrder : ");
-      // tree.inOrder();
-      //System.out.println("preOrder : ");
-      //tree.preOrder();
-      System.out.println("heights of each node : ");
-      printHeights();
-  }
 }
