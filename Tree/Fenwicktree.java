@@ -6,7 +6,7 @@ class BIT{
     }
     private void build(int arr[]){
         for(int i=0;i<arr.length;i++){
-            update(i+1,arr[i]);
+            update(i,arr[i]);
         }
     }
     public void update(int index,int value){
