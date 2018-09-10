@@ -18,7 +18,7 @@ class BIT{
     }
     public int query(int left,int right){
         //int sum=0;
-        return getSum(right)-getSum(left);
+        return getSum(right)-getSum(left-1);
     }
     public int query(int index){
         return getSum(index);
