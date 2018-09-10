@@ -1,23 +1,22 @@
 class BIT{
     private int btree[];
     BIT(int arr[]){
-        btree=new int[arr.length+1];
+        //Assuming the array as 1-based indexing
+        btree=new int[arr.length];
         build(arr);
     }
     private void build(int arr[]){
-        for(int i=0;i<arr.length;i++){
+        for(int i=1;i<arr.length;i++){
             update(i,arr[i]);
         }
     }
     public void update(int index,int value){
-        int i=index+1;
-        while(i<=btree.length){
-            btree[i]+=value;
-            i+=(i&(-i));
+        while(index<=btree.length){
+            btree[index]+=value;
+            index+=(index&(-index));
         }
     }
     public int query(int left,int right){
-        //int sum=0;
         return getSum(right)-getSum(left-1);
     }
     public int query(int index){
