@@ -1,50 +1,52 @@
 public class SegmentTree{
   int []tree;
   SegmentTree(int arr[]){
-    int n=arr.length;
-    int x=(int )Math.ceil(Math.log(n)/Math.log(2));
-    int size=2*(int )Math.pow(2,x)-1;
+    int size=(int )Math.ceil(Math.log(arr.length)/Math.log(2));
+    int size=(int )Math.pow(2,size+1)-1;
     tree=new int[size];
-    buildSegment(arr,0,n-1,0);
+    build(arr,0,arr.length-1,0);
   }
-  private int buildSegment(int arr[],int first,int last,int index){
-    if(first==last)
+  private void build(int arr[],int left,int right,int index){
+    if(left==right)
     {
-      tree[index]=arr[first];
-      return tree[index];
+      tree[index]=arr[left];    
+      return ;
     }
     int mid=first+(last-first)/2;
-    tree[index] =buildSegment(arr,first,mid,index*2+1)+buildSegment(arr,mid+1,last,index*2+2);
-    return tree[index];
+    buildSegment(arr,left,mid,2*index+1);
+    buildSegment(arr,mid+1,right,2*index+2);
+    tree[index]=tree[2*index+1]+tree[2*index+2];
   }
   public int query(int n,int l,int r){
    return query(0,n-1,l,r,0); 
   }
-  private int query(int first,int last,int l,int r,int index){
-    if(l<=first && r>=last)
-      return tree[index];
-    if(r<first || l>last)
+  private int query(int left,int right,int qleft,int qright,int index){
+    if(qright<left || qleft>right)
     return 0;
-    int mid=l+(r-l)/2;
-    int sum=query(first,last,l,mid,index*2+1)+query(first,last,mid+1,r,index*2+2);
+    if(qleft<=left && qright>=right)
+      return tree[index];    
+    int mid=left+(right-left)/2;
+    int sum=query(left,mid,qleft,qright,2*index+1)+query(mid+1,right,qleft,qright,2*index+2);
     return sum;
   }
   public void update(int arr[],int i,int new_value){
     if(i<0 || i>arr.length-1)
-    return ;
-    int diff= new_value-arr[i];
+    return ;    
     arr[i]=new_value;
-    updatest(i,0,arr.length-1,diff,0);
+    update(i,0,arr.length-1,new_value,0);
   }
-  private void updatest(int i,int l,int r,int diff,int index){
-    if(i<l || i>r)
+  private void update(int i,int left,int right,int new_value,int index){
+    if(i<left || i>right)
     return ;
-    tree[index] +=diff;
-    if(l!=r){
-      int mid=l+(r-l)/2;
-      updatest(i,l,mid,diff,index*2+1);
-      updatest(i,mid+1,r,diff,index*2+2);
+    if(left==right)
+    {
+      tree[index]=new_value;
+      return ;
     }
+    int mid=l+(r-l)/2;
+    update(i,l,mid,new_value,2*index+1);
+    update(i,mid+1,r,new_value,2*index+2);    
+    tree[index]=tree[2*index+1]+tree[2*index+2];
   }
 
 //   public static void main(String[] args) {
