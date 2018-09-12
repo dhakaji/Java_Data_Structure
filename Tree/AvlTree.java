@@ -17,54 +17,54 @@ class tree{
     }
 
   }
-  static Node root;
+  //static Node root;
   static Node rootavl;
-  static void inOrder(){
-    inOrderRec(root);
-    System.out.println();
-  }
-  static void inOrderRec(Node node){
-    if(node!=null){
-      inOrderRec(node.left);
-      System.out.print(node.data+"("+node.height+","+node.bf+")"+"  ");
-      inOrderRec(node.right);
-    }
-  }
+//   static void inOrder(){
+//     inOrderRec(root);
+//     System.out.println();
+//   }
+//   static void inOrderRec(Node node){
+//     if(node!=null){
+//       inOrderRec(node.left);
+//       System.out.print(node.data+"("+node.height+","+node.bf+")"+"  ");
+//       inOrderRec(node.right);
+//     }
+//   }
   static int height(Node node){
     if(node==null)
     return 0;
     return node.height ;
   }
-  static void insertBst(int data){
-    root=insertBstRec(root,data);
-  }
-  static Node insertBstRec(Node node,int data){
-    if(node==null){
-      node=new Node(data);
-      return node;
-    }
-    if(data < node.data ){
-      node.left=insertBstRec(node.left,data);
-    }
-    else if(data>node.data)
-    node.right=insertBstRec(node.right,data);
-    else
-    return node;
-    node.height=Math.max(height(node.left),height(node.right))+1;
-    node.bf=height(node.left)-height(node.right);
-    return node;
-  }
-  static Node search(Node node,int data){
-    if(node!=null){
-      if(node.data==data)
-      return node;
-      Node temp=search(node.left,data);
-      if(temp==null)
-      temp=search(node.right,data);
-      return temp;
-    }
-    return null ;
-  }
+//   static void insertBst(int data){
+//     root=insertBstRec(root,data);
+//   }
+//   static Node insertBstRec(Node node,int data){
+//     if(node==null){
+//       node=new Node(data);
+//       return node;
+//     }
+//     if(data < node.data ){
+//       node.left=insertBstRec(node.left,data);
+//     }
+//     else if(data>node.data)
+//     node.right=insertBstRec(node.right,data);
+//     else
+//     return node;
+//     node.height=Math.max(height(node.left),height(node.right))+1;
+//     node.bf=height(node.left)-height(node.right);
+//     return node;
+//   }
+//   static Node search(Node node,int data){
+//     if(node!=null){
+//       if(node.data==data)
+//       return node;
+//       Node temp=search(node.left,data);
+//       if(temp==null)
+//       temp=search(node.right,data);
+//       return temp;
+//     }
+//     return null ;
+//   }
   static Node findInorderSuccessor(Node node){
     if(node!=null){
       while(node.left!=null)
@@ -73,46 +73,26 @@ class tree{
     }
     return null;
   }
-  static Node deleteBst(Node node,int data){
-    if(node!=null){
-      if(data<node.data)
-      node.left=deleteBst(node.left,data);
-      else if(data>node.data)
-      node.right=deleteBst(node.right,data);
-      else {
-        if(node.left==null)
-          return node.right;
-        else if(node.right==null)
-          return node.left;
-        root.data=findInorderSuccessor(root.right);
-        deleteBst(root.right,root.data);
-      }
-      node.height=Math.max(height(node.left),height(node.right))+1;
-      node.bf=height(node.left)-height(node.right);
-      return node ;
-    }
-    return null;
-  }
-  static void preOrder(){
-    preOrderRec(root);
-  }
-  private static void preOrderRec(Node node){
-    if(node!=null){
-      System.out.print(node.data+"("+node.height+","+node.bf+")"+"  ");
-      preOrderRec(node.left);
-      preOrderRec(node.right);
-    }
-  }
-  public static void printHeights(){
-    printhe(root);
-  }
-  private static void printhe(Node node){
-    if(node!=null){
-        printhe(node.left);
-        System.out.println(node.data + "   " + node.height);
-        printhe(node.right);
-    }
-  }
+//   static Node deleteBst(Node node,int data){
+//     if(node!=null){
+//       if(data<node.data)
+//       node.left=deleteBst(node.left,data);
+//       else if(data>node.data)
+//       node.right=deleteBst(node.right,data);
+//       else {
+//         if(node.left==null)
+//           return node.right;
+//         else if(node.right==null)
+//           return node.left;
+//         root.data=findInorderSuccessor(root.right);
+//         deleteBst(root.right,root.data);
+//       }
+//       node.height=Math.max(height(node.left),height(node.right))+1;
+//       node.bf=height(node.left)-height(node.right);
+//       return node ;
+//     }
+//     return null;
+//   }
   static void insertAvl(int data){
     insertAvlRec(root,data);
   }
