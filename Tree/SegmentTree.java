@@ -1,5 +1,6 @@
+import java.util.*;
 public class SegmentTree{
-  int []tree;
+  private int []tree;
   SegmentTree(int arr[]){
     int size=(int )Math.ceil(Math.log(arr.length)/Math.log(2));
     int size=(int )Math.pow(2,size+1)-1;
@@ -47,6 +48,9 @@ public class SegmentTree{
     update(i,l,mid,new_value,2*index+1);
     update(i,mid+1,r,new_value,2*index+2);    
     tree[index]=tree[2*index+1]+tree[2*index+2];
+  }
+  public String toString(){
+    return Arrays.toString(tree);
   }
 
 //   public static void main(String[] args) {
