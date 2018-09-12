@@ -1,14 +1,7 @@
 class MaxHeap{
      int heapsize,arrsize;
      int arr[];
-     public void buildMaxHeap(){
-     	//buildMaxHeap method for Heap class array
-         arr=new int[arrsize];
-         for(int i=(heapsize-1)/2;i>=0;i--){
-             heapify(arr,i);
-         }
-     }
-     public int[] buildMaxHeap(int ar[],int n){
+     public void buildMaxHeap(int ar[],int n){
      	// builMaxHeap procedure for already given array
      	arr=new int[n];
      	arrsize=heapsize=n;
@@ -16,8 +9,15 @@ class MaxHeap{
      		arr[i]=ar[i];
      	buildMaxHeap();
      }
-
-     public void heapify(int i){
+     public void buildMaxHeap(){
+     //buildMaxHeap method for Heap class array
+         arr=new int[arrsize];
+         for(int i=(heapsize-1)/2;i>=0;i--){
+             heapify(arr,i);
+          }
+     }
+     
+     private void heapify(int i){
          int left=i*2+1;
          int right=i*2+2;
          int max=i;
