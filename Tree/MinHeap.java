@@ -13,7 +13,7 @@ class MinHeap<T>{
 		}
 		buildHeap();
 	}
-	public void heapify(int i){
+	private void heapify(int i){
 		int left=2*i+1;
 		int right=2*i+2;
 		int min=i;
