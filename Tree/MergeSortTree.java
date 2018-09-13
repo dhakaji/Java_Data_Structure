@@ -47,14 +47,14 @@ class MergeSortTree{
 
 
 	*/
-	public int query(int n,int qleft,int qright,int k){
-		if(k<0 || k>(qright-qleft))
-			return -1;// if the element is not in the range
-		return query(qleft,qright,k,0,n-1,0);
-	}
-	private int query(int qleft,int qright,int k,int left, int right,int index){
-		if(qright<left || qleft >right){
-			return 0;
-		}
-	}
+// 	public int query(int n,int qleft,int qright,int k){
+// 		if(k<0 || k>(qright-qleft))
+// 			return -1;// if the element is not in the range
+// 		return query(qleft,qright,k,0,n-1,0);
+// 	}
+// 	private int query(int qleft,int qright,int k,int left, int right,int index){
+// 		if(qright<left || qleft >right){
+// 			return 0;
+// 		}
+// 	}
 }
