@@ -54,6 +54,7 @@ class Node{
     this.distance=distance;
   }
 }
+
 public class Dijkstra{
   final static int infinity=10000;
   static class Graph{
@@ -67,9 +68,11 @@ public class Dijkstra{
       }
     }
   }
+
   static void insert(Graph graph,int src,int dest,int distance){
     graph.adjList.get(src).addFirst(new Node(dest,distance));
   }
+  
   static void printGraph(Graph graph){
     for(int i=0;i<graph.v;i++){
       //System.out.println();
