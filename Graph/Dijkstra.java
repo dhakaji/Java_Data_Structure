@@ -7,6 +7,7 @@ class MinHeap{
       heapify(arr,i);
     }
   }
+
   void heapify(Node arr[],int pos){
     if(pos<heapsize){
       int l=2*pos+1;
@@ -20,11 +21,13 @@ class MinHeap{
       heapify(arr,min);
     }
   }
+
   void swap(Node arr[],int i,int j){
     Node temp=arr[i];
     arr[i]=arr[j];
     arr[j]=temp;
   }
+
   Node extractMin(Node arr){
     if(heapsize==0)
     return -1;
